@@ -14,6 +14,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
   private var currentRainDropSpawnTime : TimeInterval = 0
   private var rainDropSpawnRate : TimeInterval = 0.5
   private let backgroundNode = BackgroundNode()
+  private let umbrellaNode = UmbrellaSprite.newInstance()
   let raindropTexture = SKTexture(image: #imageLiteral(resourceName: "rain_drop"))
   override func sceneDidLoad() {
     self.lastUpdateTime = 0
@@ -31,16 +32,29 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     self.physicsWorld.contactDelegate=self;
     
+//    umbrellaNode.position = CGPoint(x: frame.midX, y: frame.midY)
+    umbrellaNode.updatePosition(point: CGPoint(x:frame.midX,y:frame.midY))
+    umbrellaNode.zPosition = 4
+    addChild(umbrellaNode)
+    
     
   }
 
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
+    let touchPoint = touches.first?.location(in: self)
+    if let point = touchPoint {
+        umbrellaNode.setDestination(destination: point)
+    }
   }
 
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+    let touchPoint = touches.first?.location(in: self)
+    
+    if let point = touchPoint {
+        umbrellaNode.setDestination(destination: point)
+    }
+    
   }
 
   override func update(_ currentTime: TimeInterval) {
@@ -64,6 +78,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 
 
     self.lastUpdateTime = currentTime
+    
+    umbrellaNode.update(deltaTime: dt)
   }
     
     private func spawnRaindrop(){
@@ -74,6 +90,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         raindrop.position=CGPoint(x:xPosition,y:yPostion)
         raindrop.physicsBody?.categoryBitMask=RainDropCategory
         raindrop.physicsBody?.contactTestBitMask=FloorCategory|WorldCategory
+        raindrop.zPosition=2
         
         
         addChild(raindrop)
