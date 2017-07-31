@@ -14,6 +14,7 @@
 		BBA2E4B31D74A62C00853E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA2E4B21D74A62C00853E63 /* Assets.xcassets */; };
 		BBA2E4B61D74A62C00853E63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA2E4B41D74A62C00853E63 /* LaunchScreen.storyboard */; };
 		FBBA24961F2DB94000325755 /* UmbrellaSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBA24951F2DB94000325755 /* UmbrellaSprite.swift */; };
+		FBBA24981F2DEE3A00325755 /* CatSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBA24971F2DEE3A00325755 /* CatSprite.swift */; };
 		FBC2222A1F2866C2005431D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC222291F2866C2005431D5 /* Constants.swift */; };
 		FBFA57781F26D96B0030DF3D /* BackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA57771F26D96B0030DF3D /* BackgroundNode.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		BBA2E4B51D74A62C00853E63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBA2E4B71D74A62C00853E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBBA24951F2DB94000325755 /* UmbrellaSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UmbrellaSprite.swift; sourceTree = "<group>"; };
+		FBBA24971F2DEE3A00325755 /* CatSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatSprite.swift; sourceTree = "<group>"; };
 		FBC222291F2866C2005431D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FBFA57771F26D96B0030DF3D /* BackgroundNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 			children = (
 				FBFA57771F26D96B0030DF3D /* BackgroundNode.swift */,
 				FBBA24951F2DB94000325755 /* UmbrellaSprite.swift */,
+				FBBA24971F2DEE3A00325755 /* CatSprite.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBBA24961F2DB94000325755 /* UmbrellaSprite.swift in Sources */,
+				FBBA24981F2DEE3A00325755 /* CatSprite.swift in Sources */,
 				FBC2222A1F2866C2005431D5 /* Constants.swift in Sources */,
 				BBA2E4AC1D74A62C00853E63 /* GameScene.swift in Sources */,
 				FBFA57781F26D96B0030DF3D /* BackgroundNode.swift in Sources */,
