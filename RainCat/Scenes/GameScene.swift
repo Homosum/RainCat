@@ -24,15 +24,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     addChild(backgroundNode)
     
     var worldFrame = frame
-    worldFrame.origin.x-=100
-    worldFrame.origin.y-=100
-    worldFrame.size.height+=200
-    worldFrame.size.width+=200
+    worldFrame.origin.x -= 100
+    worldFrame.origin.y -= 100
+    worldFrame.size.height += 200
+    worldFrame.size.width += 200
     
     self.physicsBody = SKPhysicsBody(edgeLoopFrom:worldFrame)
-    self.physicsBody?.categoryBitMask=WorldCategory
+    self.physicsBody?.categoryBitMask = WorldCategory
     
-    self.physicsWorld.contactDelegate=self;
+    self.physicsWorld.contactDelegate = self;
     
 //    umbrellaNode.position = CGPoint(x: frame.midX, y: frame.midY)
     umbrellaNode.updatePosition(point: CGPoint(x:frame.midX,y:frame.midY))
@@ -88,22 +88,22 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     private func spawnRaindrop(){
         let raindrop=SKSpriteNode(texture:raindropTexture)
-        raindrop.physicsBody=SKPhysicsBody(texture:raindropTexture,size:raindrop.size)
+        raindrop.physicsBody = SKPhysicsBody(texture:raindropTexture,size:raindrop.size)
         let xPosition = CGFloat(arc4random()).truncatingRemainder(dividingBy: size.width)
         let yPostion = size.height+raindrop.size.height
-        raindrop.position=CGPoint(x:xPosition,y:yPostion)
-        raindrop.physicsBody?.categoryBitMask=RainDropCategory
-        raindrop.physicsBody?.contactTestBitMask=FloorCategory|WorldCategory
+        raindrop.position = CGPoint(x:xPosition,y:yPostion)
+        raindrop.physicsBody?.categoryBitMask = RainDropCategory
+        raindrop.physicsBody?.contactTestBitMask = FloorCategory|WorldCategory
         raindrop.zPosition=2
         
         
         addChild(raindrop)
     }
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.categoryBitMask==RainDropCategory {
+        if contact.bodyA.categoryBitMask == RainDropCategory {
             contact.bodyA.node?.physicsBody?.collisionBitMask=0
             contact.bodyA.node?.physicsBody?.categoryBitMask=0
-        }else if contact.bodyB.categoryBitMask==RainDropCategory
+        }else if contact.bodyB.categoryBitMask == RainDropCategory
         {
             contact.bodyB.node?.physicsBody?.collisionBitMask=0
             contact.bodyB.node?.physicsBody?.categoryBitMask=0
@@ -114,13 +114,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             return
         }
         
-        if contact.bodyA.categoryBitMask==WorldCategory {
+        if contact.bodyA.categoryBitMask == WorldCategory {
             contact.bodyB.node?.removeFromParent()
-            contact.bodyB.node?.physicsBody=nil
+            contact.bodyB.node?.physicsBody = nil
             contact.bodyB.node?.removeAllActions()
-        }else if contact.bodyB.categoryBitMask==WorldCategory{
+        }else if contact.bodyB.categoryBitMask == WorldCategory{
             contact.bodyA.node?.removeFromParent()
-            contact.bodyA.node?.physicsBody=nil
+            contact.bodyA.node?.physicsBody = nil
             contact.bodyA.node?.removeAllActions()
         }
     }

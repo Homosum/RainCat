@@ -26,8 +26,8 @@ public class BackgroundNode :   SKNode{
         let groundSize = CGSize(width: size.width,height: size.height*0.35)
         let groundNode = SKShapeNode(rect: CGRect(origin: CGPoint(),size: groundSize))
         groundNode.fillColor = SKColor(red:0.99,green:0.92,blue:0.55,alpha:1.0)
-        groundNode.strokeColor=SKColor.clear
-        groundNode.zPosition=1
+        groundNode.strokeColor = SKColor.clear
+        groundNode.zPosition = 1
         
         addChild(skyNode)
         addChild(groundNode)

@@ -43,10 +43,10 @@ public class UmbrellaSprite : SKSpriteNode{
             let directionX = (destination.x-position.x)
             let directionY = (destination.y-position.y)
             
-            position.x+=directionX*easing
-            position.y+=directionY*easing
+            position.x += directionX*easing
+            position.y += directionY*easing
         }else{
-            position=destination;
+            position = destination;
         }
     }
 }
